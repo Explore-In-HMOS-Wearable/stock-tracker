@@ -4,7 +4,6 @@
   "dependencies": {
     "@visactor/harmony-vchart": "^1.13.5"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "dynamicDependencies": {}
 }

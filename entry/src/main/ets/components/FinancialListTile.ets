@@ -222,7 +222,7 @@ export struct FinancialListTile {
     })
     .shadow({
       radius: 8,
-      color: '#00000033',
+      color: '#000033',
       offsetX: 0,
       offsetY: 2
     })
