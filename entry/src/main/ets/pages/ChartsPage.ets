@@ -7,7 +7,7 @@ struct ChartsPage {
   private viewModel: ListViewModel = new ListViewModel();
   private DISPLAY_COUNT: number = 1
   private MIN_SCALE: number = 0.75
-  @State backgroundColors: Color[] = [Color.Green, Color.Blue, Color.Yellow, Color.Pink, Color.Gray, Color.Orange]
+  private backgroundColors: Color[] = [Color.Green, Color.Blue, Color.Yellow, Color.Pink, Color.Gray, Color.Orange]
   @State opacityList: number[] = []
   @State scaleList: number[] = []
   @State translateList: number[] = []
@@ -34,7 +34,7 @@ struct ChartsPage {
             x: 0,
             y: this.translateList[index]
           }).zIndex(this.zIndexList[index])
-      }, (item: FinancialAsset) => item.name)
+      }, (item: FinancialAsset, index: number) => item.name)
     }
     .linearGradient({
       direction: GradientDirection.Left,

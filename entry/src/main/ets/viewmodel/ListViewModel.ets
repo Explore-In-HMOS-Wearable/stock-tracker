@@ -1,5 +1,14 @@
 import { FinancialAsset, FinancialDataPoint } from '../model/FinancialAsset';
 
+const date = new Date();
+
+let randSeed: number = Date.now() & 0xffffffff;
+
+function rand(): number {
+  randSeed = (1664525 * randSeed + 1013904223) >>> 0;
+  return randSeed / 0xffffffff;
+}
+
 @Observed
 export class ListViewModel {
   listContents: Array<FinancialAsset> = [
@@ -68,14 +77,12 @@ export class ListViewModel {
   // Generate sample historical data (replace with real data API later)
   private generateSampleData(currentValue: number, days: number, volatility: number): FinancialDataPoint[] {
     const data: FinancialDataPoint[] = [];
-    const today = new Date();
 
     for (let i = days - 1; i >= 0; i--) {
-      const date = new Date(today);
-      date.setDate(today.getDate() - i);
+      date.setDate(date.getDate() - i);
 
       // Generate random value with some trend
-      const randomChange = (Math.random() - 0.5) * volatility;
+      const randomChange = (rand() - 0.5) * volatility;
       const trendFactor = i === 0 ? 0 : (currentValue - data[data.length - 1]?.value || currentValue) / days;
       const value =
         i === 0 ? currentValue : (data[data.length - 1]?.value || currentValue) + randomChange + trendFactor;

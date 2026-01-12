@@ -155,7 +155,7 @@ export struct FinancialListTile {
       series: [seriesConfig],
       axes: [xAxis, yAxis],
       theme: theme,
-      background: 'transparent',
+      background: 'transparent'
     };
   }
 
@@ -190,7 +190,7 @@ export struct FinancialListTile {
       .padding({
         left: 16,
         right: 16,
-        top: 32,
+        top: 32
       })
 
       // VChart Component
